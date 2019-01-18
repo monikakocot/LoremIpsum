@@ -6,10 +6,20 @@
 </head>
 <body>
 
+<form action="/result" method="get">
+    <label>Number</label>
+    <input type="text" name="count"/>
+    <select name="choice">
+        <option value="word"> Words </option>
+        <option value="sentence"> Sentences</option>
+        <option value="paragraph"> Paragraph</option>
+    </select>
+    <input type="submit" value="Generate!">
+</form>
+
 <h1> Your random text: </h1>
 
 <p th:text="${word}"/>
-
 
 </body>
 </html>

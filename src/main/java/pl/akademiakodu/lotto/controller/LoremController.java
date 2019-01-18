@@ -19,7 +19,6 @@ public class LoremController {
     }
 
     @GetMapping("/result")
-
     public String index(@RequestParam("count") int count,
                         @RequestParam("choice") String choice,
                         ModelMap modelMap) {
@@ -36,7 +35,7 @@ public class LoremController {
 
         } else if (count != 0 && choice.equals("paragraph")) {
 
-            modelMap.addAttribute("paragraph",LoremIpsum.paragraphs(count));
+            modelMap.addAttribute("paragraph",LoremIpsum.paragraphsHtml(count));
             return "paragraphs";
         }
             return null;

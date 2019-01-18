@@ -79,7 +79,7 @@ public class LoremIpsum {
 
 public static String sentenceFragment() {
         return words(random.nextInt(10) + 3);
-    }
+    } // choose within 10 numbers, min amounts is 3 and max 13
 
      // making sentences from words
 
@@ -116,13 +116,29 @@ public static String sentenceFragment() {
     public static String paragraph() {
         // first word - "    "
         // my object is: fist word + sentences. Min 20 + enter
-        String enter = System.getProperty("line.separator");
-        StringBuilder p = new StringBuilder(" LOREN IPSUM ").append(sentences(20)).append(enter);
-       return p.toString();
+       // String enter = System.getProperty("line.separator");
+        //StringBuilder p = new StringBuilder(" LOREN IPSUM ").append(sentences(20)).append("\n");
+        StringBuilder p = new StringBuilder("").append(sentences(20));
+        return p.toString();
     }
 
     // OPTION where is the number of sentences we want to be printed out
 
+    public static String paragraphsHtml(int count) {
+        StringBuilder p = new StringBuilder("<p>");
+        for (int i = 0; i < count; i++) {
+            p.append(paragraph());
+
+            if (i < count - 1) {
+                p.append("</p><p>");
+            }
+        }
+        p.append("</p>");
+
+        return p.toString();
+    }
+
+    // here we dont have new Line in HTML
     public static String paragraphs(int count) {
         StringBuilder p = new StringBuilder();
         String enter1 = System.getProperty("line.separator");
